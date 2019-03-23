@@ -1,15 +1,10 @@
-from database import db
+from database import db, User
 from flask.blueprints import Blueprint
 
 
 people = Blueprint('people', __name__,
                  template_folder='templates',
                  static_folder='static')
-
-
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True)
 
 
 @people.route('/')
